@@ -1,0 +1,16 @@
+<app-nav (categorySelected)="onCategorySelected($event)"></app-nav>
+<div class="products-container">
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+  <ng-container *ngIf="!isLoading">
+    <app-product-card
+      *ngFor="let product of filteredProducts"
+      [product]="product"
+    ></app-product-card>
+  </ng-container>
+</div>
+<app-pagination
+  *ngIf="!isLoading && products.length > productsPerPage"
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (pageChange)="onPageChange($event)"
+></app-pagination>

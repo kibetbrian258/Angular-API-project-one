@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <!-- Mobile Toggle Button -->
+  <button class="mobile-toggle" (click)="toggleMobileMenu()">
+    <div class="hamburger" [class.open]="isMobileMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <!-- Navigation Links -->
+  <div class="nav-links" [class.open]="isMobileMenuOpen">
+    <a
+      (click)="selectCategory('all')"
+      [class.active]="activeCategory === 'all'"
+    >
+      All
+    </a>
+    <a
+      *ngFor="let category of categories"
+      (click)="selectCategory(category)"
+      [class.active]="activeCategory === category"
+    >
+      {{ category | titlecase }}
+    </a>
+  </div>
+</nav>

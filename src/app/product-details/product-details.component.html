@@ -1,0 +1,19 @@
+<div class="product-details-container">
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+  <ng-container *ngIf="!isLoading && product">
+    <div class="product-image">
+      <img [src]="product.image" alt="product.title" />
+    </div>
+    <div class="product-info">
+      <h1>{{ product.title }}</h1>
+      <span class="category"> {{ product.category }} </span>
+      <p class="price">$ {{ product.price }}</p>
+      <div class="rating">
+        <span> {{ product.rating?.rate }} ⭐ </span>
+        <span> {{ product.rating?.count }} </span>
+      </div>
+      <div class="description">{{ product.description }}</div>
+    </div>
+  </ng-container>
+</div>

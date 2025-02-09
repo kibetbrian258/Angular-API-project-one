@@ -1,0 +1,14 @@
+<div class="main-card">
+  <div class="product-card">
+    <img [src]="product.image" [attr.alt]="product.title" />
+    <div class="card-details">
+      <h3>{{ product.category }}</h3>
+      <p>$ {{ product.price }}</p>
+      <div class="rating">
+        <span> {{ product.rating?.rate }} ⭐ </span>
+        <span> {{ product.rating?.count }} reviews </span>
+      </div>
+      <button (click)="viewDetails()">View Details</button>
+    </div>
+  </div>
+</div>
